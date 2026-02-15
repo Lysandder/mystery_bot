@@ -2,6 +2,8 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import Message # , InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters.command import Command
 
+import asyncio
+
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -30,7 +32,6 @@ async def main():
 
 if __name__ == "__main__":
   try:
-    import asyncio
     asyncio.run(main())
   except KeyboardInterrupt:
     pass
