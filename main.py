@@ -25,8 +25,10 @@ async def get_any_message(message: Message):
     try:
       await message.forward(chat_id=admin)
       await asyncio.sleep(0.05)
+      await message.answer(text="✅Your message has been sent! We'll post it to the channel soon.", chat_id=message.from_user.id)
     except Exception as e:
       print(f"Failed to forward to {admin}: {e}")
+      await message.answer(text="Something went wrong. Contact the Admin.", chat_id=message.from_user.id)
 
 # --- Tiny web server for Render ---
 async def health(request):
