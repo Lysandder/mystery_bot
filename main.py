@@ -3,7 +3,7 @@ from aiogram.types import Message # , InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters.command import Command
 
 import asyncio
-from aiohttp import web
+# from aiohttp import web
 
 import os
 from dotenv import load_dotenv
@@ -31,23 +31,23 @@ async def get_any_message(message: Message):
       await message.answer(text="Something went wrong. Contact the Admin.")
 
 # --- Tiny web server for Render ---
-async def health(request):
-    return web.Response(text="ok")
-
-async def start_web_server():
-    app = web.Application()
-    app.router.add_get("/", health)
-    app.router.add_get("/healthz", health)
-
-    runner = web.AppRunner(app)
-    await runner.setup()
-
-    port = int(os.getenv("PORT", "10000"))
-    site = web.TCPSite(runner, host="0.0.0.0", port=port)
-    await site.start()
+# async def health(request):
+#     return web.Response(text="ok")
+#
+# async def start_web_server():
+#     app = web.Application()
+#     app.router.add_get("/", health)
+#     app.router.add_get("/healthz", health)
+#
+#     runner = web.AppRunner(app)
+#     await runner.setup()
+#
+#     port = int(os.getenv("PORT", "10000"))
+#     site = web.TCPSite(runner, host="0.0.0.0", port=port)
+#     await site.start()
 
 async def main():
-    await start_web_server()
+    # await start_web_server()
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
