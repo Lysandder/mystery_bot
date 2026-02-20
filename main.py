@@ -21,6 +21,7 @@ async def cmd_start(message: Message):
 @dp.message()
 async def get_any_message(message: Message):
   # print(f"@{message.from_user.username} - {message.from_user.first_name} - {message.from_user.id}")
+
   for admin in ADMINS:
     try:
       await message.forward(chat_id=admin)
